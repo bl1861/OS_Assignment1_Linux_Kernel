@@ -18,10 +18,11 @@ Task 1. Add “Hello World” system call
 2. Download Linux Kernel: https://www.kernel.org/ (2.6.39):
 >	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.39.tar.bz2
 
-3. Extract the kernel to > /usr/src/
+3. Extract the kernel to */usr/src/*
 
 4. Write your own system call, named my_system_call.c and place it in the linux-2.6.39/kernel folder
 For example:
+```
 #include<linux/linkage.h>
 #include<linux/kernel.h>
 asmlinkage long sys_hello(const char *msg)
@@ -29,6 +30,7 @@ asmlinkage long sys_hello(const char *msg)
 	printk(KERN_INFO “Hello I am in kernel space, %s”, msg);
     		return 0;
 }
+```
 
 4. Declare your new system call in the kernel source.
 - Open the file linux-2.6.39/arch/x86/kernel/syscall_table_32.S and add the below line in the end of the file:
