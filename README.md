@@ -1,4 +1,4 @@
-# OS_Assignment1_Linux_Kernel
+### OS_Assignment1_Linux_Kernel
 
 
 The main purpose of this assignment is to familiarize you with linux kernel and system calls. In particular, you will add a new system call and hook existing system calls in linux kernel. Note that the below instruction works for Ubuntu 11.04 and Linux Kernel 2.6.39. If you work on other Linux distribution or kernel version, the steps might change. For example, in Linux kernel version 3.x, you need to modify the file syscall_32.tbl instead of syscall_table_32.S
@@ -10,15 +10,15 @@ Submit a report in PDF format that details of the following:
 
 Task 1. Add “Hello World” system call
 1. Prepare the virtual machine.
-	- Install VirtualBox 
-	- Download Ubuntu 11.04 Image: http://virtualboxes.org/images/ubuntu/
-	- You will work on this virtual machine.
-	- To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use $make -jn when compiling the kernel, where n is number of CPU cores.
+>	- Install VirtualBox 
+>	- Download Ubuntu 11.04 Image: http://virtualboxes.org/images/ubuntu/
+>	- You will work on this virtual machine.
+>	- To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use $make -jn when compiling the kernel, where n is number of CPU cores.
 
 2. Download Linux Kernel: https://www.kernel.org/ (2.6.39):
-ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.39.tar.bz2
+>	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.39.tar.bz2
 
-3. Extract the kernel to /usr/src/
+3. Extract the kernel to > /usr/src/
 
 4. Write your own system call, named my_system_call.c and place it in the linux-2.6.39/kernel folder
 For example:
