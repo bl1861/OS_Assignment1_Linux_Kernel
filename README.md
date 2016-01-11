@@ -5,7 +5,7 @@ The main purpose of this assignment is to familiarize you with linux kernel and 
 
 Submit a report in PDF format that details of the following:
 1. What are kernel APIs? What is the difference between kernel APIs and system calls?
-2. What are roles of files in /boot/ (vmlinuz-*, initrd.img-*, grub, config*)?
+2. What are roles of files in /boot/ (vmlinuz-\*, initrd.img-\*, grub, config\*)?
 3. Include the screenshots from tasks 1, 2 and 3 below.
 
 Task 1. Add “Hello World” system call
