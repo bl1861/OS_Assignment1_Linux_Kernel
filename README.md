@@ -13,7 +13,7 @@ Task 1. Add “Hello World” system call
 	- Install VirtualBox 
 	- Download Ubuntu 11.04 Image: http://virtualboxes.org/images/ubuntu/
 	- You will work on this virtual machine.
-	- To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use $make -jn when compiling the kernel, where n is number of CPU cores.
+	- To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use ```$make -jn``` when compiling the kernel, where n is number of CPU cores.
 
 2. Download Linux Kernel: https://www.kernel.org/ (2.6.39):
 	- ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.39.tar.bz2
