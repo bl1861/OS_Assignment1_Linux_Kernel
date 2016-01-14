@@ -1,3 +1,4 @@
+
 OS_Assignment1_Linux_Kernel
 =============================
 	
@@ -55,18 +56,16 @@ Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_32.h``` and add a new 
 	
 	
 Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_64.h```, find line ```__SYSCALL(__NR_syncfs, sys_syncfs)``` and add two following lines after that line:
-	
-	```
+		
 	#define __NR_syshello 307
 	__SYSCALL(__NR_syshello, sys_hello)
 	//Change 307 to other number if it is already defined.
-	```
+		
 	
 Open the file ```linux-2.6.39/include/linux/syscalls.h``` and add the below line in the end of the file and before ```#endif```:
 	```
 	asmlinkage long sys_hello(const char *msg);
 	```
-
 6. Declare your new system call in the Makefile:
 
 Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y += groups.o. After this line, add a new line: 
@@ -76,6 +75,7 @@ Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y +=
 7.  Compile and install your new kernel. Assume you are in the folder ```/usr/src/linux-2.6.39```
 You could strip down unnecessary modules in the kernel by following this instruction: http://linux-hacks.blogspot.com/2009/06/build-your-kernel-faster.html
 	Generate new configure file and save it as ```.config```
+		
 		```
 		$make oldconfig 
 		$make or $make -jn, where n is number of CPU cores in your machine.
@@ -90,7 +90,8 @@ You could strip down unnecessary modules in the kernel by following this instruc
 > Reboot your machine, choose your new kernel to boot.
 > Compile and run this code:
 > //test_syscall.c
-	```
+
+```
 #include <stdio.h>
 #include <linux/unistd.h>
 #include <sys/syscall.h>
@@ -103,8 +104,8 @@ int main(void)
     syscall(sys_hello , msg);
     return 0;
 }
-	```
-Check the output of the program: $dmesg (You should take screenshot of the output of this command)
+```
+Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
 
 
 ####Task 2: Try to hook the system call: sys_open. 
@@ -113,5 +114,6 @@ When a program call ```sys_open```  on a file, let’s say ```my_file.txt```, th
 Note that, after you done compiling the kernel for the first task, it should take much less time to recompile the kernel latter for other tasks. So be patient :-) 
 
 ####Task 3: Try to hook the system call: sys_write. 
+
 When a program call ```sys_write``` on ```file my_file.txt```, add to the end of this file a line: ```File my_file.txt is being hacked```
 	- Write a program that writes to a file then using the commands ```$dmesg``` to check the result.
