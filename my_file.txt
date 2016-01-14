@@ -1,0 +1,4 @@
+sys_open tested by Bing
+
+task2
+File my_file.txt is being hacked.
