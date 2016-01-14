@@ -66,8 +66,7 @@ Submit a report in PDF format that details of the following:
 	asmlinkage long sys_hello(const char *msg);
 	```
 6. Declare your new system call in the Makefile:
-
-		Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y += groups.o. After this line, add a new line: 
+	Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y += groups.o. After this line, add a new line: 
 	```
 	obj-y += my_system_call.o
 	```
@@ -75,7 +74,7 @@ Submit a report in PDF format that details of the following:
 You could strip down unnecessary modules in the kernel by following this instruction: http://linux-hacks.blogspot.com/2009/06/build-your-kernel-faster.html
 	Generate new configure file and save it as ```.config```
 		
-		```
+		
 		$make oldconfig 
 		$make or $make -jn, where n is number of CPU cores in your machine.
 		$make modules
@@ -84,15 +83,13 @@ You could strip down unnecessary modules in the kernel by following this instruc
 		$cd /boot
 		$mkinitramfs -o initrd.img-2.6.39 2.6.39
 		$update-grub
-		```
 		
-8.Test your new system call.
-
-		Reboot your machine, choose your new kernel to boot.
-		Compile and run this code:
-		//test_syscall.c
-
-	```
+		
+8.Test your new system call:
+	Reboot your machine, choose your new kernel to boot.
+	Compile and run this code:
+	//test_syscall.c
+	
 	#include <stdio.h>
 	#include <linux/unistd.h>
 	#include <sys/syscall.h>
@@ -105,8 +102,9 @@ You could strip down unnecessary modules in the kernel by following this instruc
 	    syscall(sys_hello , msg);
 	    return 0;
 	}
-	```
-	Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
+	
+
+Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
 
 
 ####Task 2: Try to hook the system call: sys_open. 
