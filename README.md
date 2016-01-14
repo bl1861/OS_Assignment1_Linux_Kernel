@@ -1,6 +1,7 @@
 
-OS_Assignment1_Linux_Kernel
+Coding Project 2
 =============================
+CS 6233
 	
 The main purpose of this assignment is to familiarize you with linux kernel and system calls. In particular, you will add a new system call and hook existing system calls in linux kernel. Note that the below instruction works for Ubuntu 11.04 and Linux Kernel 2.6.39. If you work on other Linux distribution or kernel version, the steps might change. For example, in Linux kernel version 3.x, you need to modify the file ```syscall_32.tbl``` instead of ```syscall_table_32.S```
 
