@@ -20,9 +20,9 @@ Submit a report in PDF format that details of the following:
 	>Download Ubuntu 11.04 Image
 	http://virtualboxes.org/images/ubuntu/
 	
-	> You will work on this virtual machine.
+	>You will work on this virtual machine.
 	
-	> To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use ```$make -jn``` when compiling the kernel, where n is number of CPU cores.
+	>To reduce time for compiling Linux kernel so you could use multiple CPU cores for your virtual machine and use ```$make -jn``` when compiling the kernel, where n is number of CPU cores.
 
 2. Download Linux Kernel: https://www.kernel.org/ (2.6.39):
 	ftp://ftp.kernel.org/pub/linux/kernel/v2.6/linux-2.6.39.tar.bz2  	
@@ -43,9 +43,9 @@ Submit a report in PDF format that details of the following:
 	```
 
 5. Declare your new system call in the kernel source.
-Open the file ```linux-2.6.39/arch/x86/kernel/syscall_table_32.S``` and add the below line in the end of the file:
+	Open the file ```linux-2.6.39/arch/x86/kernel/syscall_table_32.S``` and add the below line in the end of the file:
 	```.long sys_hello```
-Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_32.h``` and add a new line after the line 
+	Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_32.h``` and add a new line after the line 
 	```#define __NR_syncfs:```
 	
 	```
@@ -55,14 +55,14 @@ Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_32.h``` and add a new 
 	Change the line ```#define NR_syscalls 345``` to ```#define NR_syscalls 346```
 	
 	
-Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_64.h```, find line ```__SYSCALL(__NR_syncfs, sys_syncfs)``` and add two following lines after that line:
+	Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_64.h```, find line ```__SYSCALL(__NR_syncfs, sys_syncfs)``` and add two following lines after that line:
 		
 	#define __NR_syshello 307
 	__SYSCALL(__NR_syshello, sys_hello)
 	//Change 307 to other number if it is already defined.
 		
 	
-Open the file ```linux-2.6.39/include/linux/syscalls.h``` and add the below line in the end of the file and before ```#endif```:
+	Open the file ```linux-2.6.39/include/linux/syscalls.h``` and add the below line in the end of the file and before ```#endif```:
 	```
 	asmlinkage long sys_hello(const char *msg);
 	```
@@ -87,25 +87,25 @@ You could strip down unnecessary modules in the kernel by following this instruc
 		$update-grub
 		```
 7. Test your new system call.
-> Reboot your machine, choose your new kernel to boot.
-> Compile and run this code:
-> //test_syscall.c
+	> Reboot your machine, choose your new kernel to boot.
+	> Compile and run this code:
+	> //test_syscall.c
 
-```
-#include <stdio.h>
-#include <linux/unistd.h>
-#include <sys/syscall.h>
- 
-#define sys_hello 345
-  
-int main(void)
-{
-    char *msg = “Hello System Call”;
-    syscall(sys_hello , msg);
-    return 0;
-}
-```
-Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
+	```
+	#include <stdio.h>
+	#include <linux/unistd.h>
+	#include <sys/syscall.h>
+	 
+	#define sys_hello 345
+	  
+	int main(void)
+	{
+	    char *msg = “Hello System Call”;
+	    syscall(sys_hello , msg);
+	    return 0;
+	}
+	```
+	Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
 
 
 ####Task 2: Try to hook the system call: sys_open. 
