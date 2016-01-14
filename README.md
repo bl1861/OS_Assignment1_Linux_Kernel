@@ -93,37 +93,26 @@ You could strip down unnecessary modules in the kernel by following this instruc
 8.Test your new system call:
 	Reboot your machine, choose your new kernel to boot.
 	Compile and run this code:
-       ```
-       //test_syscall.c
-       
-       #include <stdio.h>
-       
-       #include <linux/unistd.h>
-       
-       #include <sys/syscall.h>
-       
-       #define sys_hello 345
-       
-        
-       
-       int main(void)
-       
-       {
-       
-          char *msg = “Hello System Call”;
-       
-          syscall(sys_hello , msg);
-       
-          return 0;
-       
-       }
-       ```
+	
+	//test_syscall.c
+	#include <stdio.h>
+	#include <linux/unistd.h>
+	#include <sys/syscall.h>
+ 
+	#define sys_hello 345
+  
+	int main(void)
+	{
+    char *msg = “Hello System Call”;
+    syscall(sys_hello , msg);
+    return 0;
+	}
 
 Check the output of the program: `$dmesg` (You should take screenshot of the output of this command)
 
 
 ####Task 2: Try to hook the system call: sys_open. 
-When a program call ```sys_open```  on a file, let’s say ```my_file.txt```, the kernel print out a line: ```File my_file.txt is being opened```. After booting on a new modified kernel, use the command ```$dmesg```
+When a program call `sys_open`  on a file, let’s say ```my_file.txt```, the kernel print out a line: ```File my_file.txt is being opened```. After booting on a new modified kernel, use the command ```$dmesg```
 	- Open my_file.txt then using the commands ```$dmesg``` or ```$tail -f /var/log/syslog``` to see the result.
 Note that, after you done compiling the kernel for the first task, it should take much less time to recompile the kernel latter for other tasks. So be patient :-) 
 
