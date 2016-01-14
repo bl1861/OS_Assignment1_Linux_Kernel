@@ -90,10 +90,10 @@ You could strip down unnecessary modules in the kernel by following this instruc
        >$update-grub
 
 		
-8.Test your new system call:
+8. Test your new system call:
 	Reboot your machine, choose your new kernel to boot.
 	Compile and run this code:
-	
+	```
 	//test_syscall.c
 	#include <stdio.h>
 	#include <linux/unistd.h>
@@ -107,7 +107,7 @@ You could strip down unnecessary modules in the kernel by following this instruc
     syscall(sys_hello , msg);
     return 0;
 	}
-
+	```
 Check the output of the program: `$dmesg` (You should take screenshot of the output of this command)
 
 
