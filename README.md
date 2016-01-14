@@ -1,5 +1,5 @@
 
-Coding Project 2
+Coding Project 1
 =============================
 CS 6233
 	
