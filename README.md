@@ -93,7 +93,6 @@ You could strip down unnecessary modules in the kernel by following this instruc
 8.Test your new system call:
 	Reboot your machine, choose your new kernel to boot.
 	Compile and run this code:
-		
 	```
 	//test_syscall.c
 	#include <stdio.h>
@@ -110,7 +109,7 @@ You could strip down unnecessary modules in the kernel by following this instruc
 	}
 	```
 
-Check the output of the program: ```$dmesg``` (You should take screenshot of the output of this command)
+Check the output of the program: `$dmesg` (You should take screenshot of the output of this command)
 
 
 ####Task 2: Try to hook the system call: sys_open. 
