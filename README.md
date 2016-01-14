@@ -56,19 +56,18 @@ Submit a report in PDF format that details of the following:
 	
 	
 	Open the file ```linux-2.6.39/arch/x86/include/asm/unistd_64.h```, find line ```__SYSCALL(__NR_syncfs, sys_syncfs)``` and add two following lines after that line:
-		
+	```
 	#define __NR_syshello 307
 	__SYSCALL(__NR_syshello, sys_hello)
 	//Change 307 to other number if it is already defined.
-		
-	
+	```
 	Open the file ```linux-2.6.39/include/linux/syscalls.h``` and add the below line in the end of the file and before ```#endif```:
 	```
 	asmlinkage long sys_hello(const char *msg);
 	```
 6. Declare your new system call in the Makefile:
 
-Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y += groups.o. After this line, add a new line: 
+		Open the file ```linux-2.6.39/kernel/Makefile``` and find out the line: obj-y += groups.o. After this line, add a new line: 
 	```
 	obj-y += my_system_call.o
 	```
@@ -86,10 +85,12 @@ You could strip down unnecessary modules in the kernel by following this instruc
 		$mkinitramfs -o initrd.img-2.6.39 2.6.39
 		$update-grub
 		```
-7. Test your new system call.
-	> Reboot your machine, choose your new kernel to boot.
-	> Compile and run this code:
-	> //test_syscall.c
+		
+8.Test your new system call.
+
+		Reboot your machine, choose your new kernel to boot.
+		Compile and run this code:
+		//test_syscall.c
 
 	```
 	#include <stdio.h>
