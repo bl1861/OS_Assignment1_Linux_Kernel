@@ -93,21 +93,31 @@ You could strip down unnecessary modules in the kernel by following this instruc
 8.Test your new system call:
 	Reboot your machine, choose your new kernel to boot.
 	Compile and run this code:
-	```
-	//test_syscall.c
-	#include <stdio.h>
-	#include <linux/unistd.h>
-	#include <sys/syscall.h>
-	 
-	#define sys_hello 345
-	  
-	int main(void)
-	{
-	    char *msg = “Hello System Call”;
-	    syscall(sys_hello , msg);
-	    return 0;
-	}
-	```
+       ```
+       //test_syscall.c
+       
+       #include <stdio.h>
+       
+       #include <linux/unistd.h>
+       
+       #include <sys/syscall.h>
+       
+       #define sys_hello 345
+       
+        
+       
+       int main(void)
+       
+       {
+       
+          char *msg = “Hello System Call”;
+       
+          syscall(sys_hello , msg);
+       
+          return 0;
+       
+       }
+       ```
 
 Check the output of the program: `$dmesg` (You should take screenshot of the output of this command)
 
